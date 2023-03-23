@@ -2,12 +2,13 @@ from unittest import result
 import string
 punc = string.punctuation
 from collections import Counter
+import json
 
-length= int(input("Length of the word that you are interested: "))
+length= int(input("Length of the word that you are interested to find: "))
 
 with open('pelekapasaka.txt', 'r', encoding='utf-8') as f:
-
     ff = f.read()
+
 ff_list = ff.split()
 
 empty = []
@@ -18,7 +19,6 @@ for item in ff_list:
 words = []
 clean = []
 for i in empty:
-
     if length == len(i):
         words.append(i)
         if i not in clean:
@@ -30,5 +30,4 @@ print(word_count)
 
 clean.sort()     
 for j in clean:
-    print(j)
-    print(word_count[j])
+    print('{} : {}'.format(j, word_count[j]))
